@@ -6,12 +6,14 @@ function App() {
   const [checked, setChecked] = useState(false);
   return (
     <div className="App">
+      <label htmlFor="checkbox"> Disable the button </label>
       <input
         type="checkbox"
         checked={checked}
+        name="checkbox"
+        aria-checked={checked}
         onChange={() => setChecked(!checked)}
       />
-      Disable the button
       <Button isDisabled={checked} />
     </div>
   );

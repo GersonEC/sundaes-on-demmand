@@ -12,7 +12,7 @@ export function Button({ isDisabled }: ButtonProps) {
   return (
     <div>
       <button
-        style={{ backgroundColor: buttonColor }}
+        style={{ backgroundColor: isDisabled ? "gray" : buttonColor }}
         onClick={() => setButtonColor(newButtonColor)}
         disabled={isDisabled}
       >
