@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { Button } from "../Button/Button";
+import { Popover } from "antd";
+import "antd/dist/antd.css";
 
 export function SummaryForm() {
   const [checked, setChecked] = useState(false);
+
+  const content = <p>No ice cream will actually be delivered</p>;
+
   return (
     <div className="App">
       <input
@@ -12,7 +17,14 @@ export function SummaryForm() {
         aria-checked={checked}
         onChange={() => setChecked(!checked)}
       />
-      <label htmlFor="termsCheckbox">I agree to Terms and Conditions</label>
+      <label htmlFor="termsCheckbox">
+        I agree to{" "}
+        <Popover content={content}>
+          <span data-testid="terms" style={{ color: "blue" }}>
+            Terms and Conditions
+          </span>
+        </Popover>
+      </label>
       <Button text="Confirm order" isDisabled={checked} />
     </div>
   );

@@ -4,7 +4,7 @@ import { SummaryForm } from "./SummaryForm";
 
 describe("Summary Form", () => {
   test("Checkbox render with correct label", () => {
-    const checkboxLabelText = /i agree to terms and conditions/i;
+    const checkboxLabelText = /I agree to/i;
     render(<SummaryForm />);
     const checkboxLabel = screen.getByLabelText(checkboxLabelText);
 
@@ -53,5 +53,23 @@ describe("Summary Form", () => {
     expect(button).toHaveStyle(`background-color: gray`);
     userEvent.click(checkbox);
     expect(button).toHaveStyle(`background-color: blue`);
+  });
+
+  test("popover responds to hover", () => {
+    render(<SummaryForm />);
+    const popoverText = /no ice cream will actually be delivered/i;
+    //popover starts out hidden
+    const nullPopover = screen.queryByText(popoverText);
+    expect(nullPopover).not.toBeInTheDocument();
+
+    //popover appears when hover on checbox label
+    const termsAndConditions = screen.getByLabelText(/terms and conditions/i);
+    userEvent.hover(termsAndConditions);
+    const popover = screen.getByTestId("terms");
+    expect(popover).toBeInTheDocument();
+
+    //dissapear when unhover
+    userEvent.unhover(termsAndConditions);
+    expect(nullPopover).not.toBeInTheDocument();
   });
 });
