@@ -5,15 +5,15 @@ export function SummaryForm() {
   const [checked, setChecked] = useState(false);
   return (
     <div className="App">
-      <label htmlFor="checkbox"> Disable the button </label>
       <input
+        id="termsCheckbox"
         type="checkbox"
         checked={checked}
-        name="checkbox"
         aria-checked={checked}
         onChange={() => setChecked(!checked)}
       />
-      <Button isDisabled={checked} />
+      <label htmlFor="termsCheckbox">I agree to Terms and Conditions</label>
+      <Button text="Confirm order" isDisabled={checked} />
     </div>
   );
 }

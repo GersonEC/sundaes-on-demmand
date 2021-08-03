@@ -2,10 +2,11 @@ import { useState } from "react";
 import "./Button.css";
 
 interface ButtonProps {
+  text: string;
   isDisabled?: boolean;
 }
 
-export function Button({ isDisabled }: ButtonProps) {
+export function Button({ isDisabled, text }: ButtonProps) {
   const [buttonColor, setButtonColor] = useState("red");
   const newButtonColor = buttonColor === "red" ? "blue" : "red";
 
@@ -16,7 +17,7 @@ export function Button({ isDisabled }: ButtonProps) {
         onClick={() => setButtonColor(newButtonColor)}
         disabled={isDisabled}
       >
-        Change to {newButtonColor}
+        {text}
       </button>
     </div>
   );

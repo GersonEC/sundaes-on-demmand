@@ -3,6 +3,14 @@ import userEvent from "@testing-library/user-event";
 import { SummaryForm } from "./SummaryForm";
 
 describe("Summary Form", () => {
+  test("Checkbox render with correct label", () => {
+    const checkboxLabelText = /i agree to terms and conditions/i;
+    render(<SummaryForm />);
+    const checkboxLabel = screen.getByLabelText(checkboxLabelText);
+
+    expect(checkboxLabel).toBeInTheDocument();
+  });
+
   test("Button becomes disabled after clicking the checkbox and becomes enabled after another click", () => {
     //Arrange the initial state
     render(<SummaryForm />);
