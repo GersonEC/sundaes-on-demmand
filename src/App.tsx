@@ -1,20 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
-import { Button } from "./components/Button/Button";
+import { SummaryForm } from "./components/SummaryForm/SummaryForm";
 
 function App() {
-  const [checked, setChecked] = useState(false);
   return (
     <div className="App">
-      <label htmlFor="checkbox"> Disable the button </label>
-      <input
-        type="checkbox"
-        checked={checked}
-        name="checkbox"
-        aria-checked={checked}
-        onChange={() => setChecked(!checked)}
-      />
-      <Button isDisabled={checked} />
+      <SummaryForm />
     </div>
   );
 }
