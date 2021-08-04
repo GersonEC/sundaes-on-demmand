@@ -1,13 +1,9 @@
-import { render, screen, waitFor } from "@testing-library/react";
-import { ScoopOptionList } from "../../components/SundaeOption/ScoopOptionList";
-import { SundaeOptions } from "./SundaeOptions";
+import { render, screen } from "@testing-library/react";
+import { ScoopOptionList } from "./ScoopOptionList";
+import { scoopOptions } from "../../utils/stubs";
 
 describe("Sundae Options", () => {
   test("it displays an image for each scoop option from server", async () => {
-    const scoopOptions = [
-      { name: "Chocolate", imagePath: "images/chocolate.png" },
-      { name: "Vanilla", imagePath: "images/vanilla.png" },
-    ];
     render(<ScoopOptionList scoopOptions={scoopOptions} />);
 
     //find images
