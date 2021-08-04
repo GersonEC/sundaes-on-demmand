@@ -1,14 +1,15 @@
 import React from "react";
 import "./App.css";
 import { SummaryForm } from "./components/SummaryForm/SummaryForm";
-import { SundaeOptions } from "./containers/SundaeOptions/SundaeOptions";
+import { SundaeOptionsContainer } from "./containers/SundaeOptionsContainer/SundaeOptionsContainer";
+import { SundaeOptionType } from "./utils/enum";
 
 function App() {
   return (
     <div className="App">
       <SummaryForm />
-      <SundaeOptions optionType="scoops" />
-      <SundaeOptions optionType="toppings" />
+      <SundaeOptionsContainer optionType={SundaeOptionType.SCOOPS} />
+      <SundaeOptionsContainer optionType={SundaeOptionType.TOPPINGS} />
     </div>
   );
 }

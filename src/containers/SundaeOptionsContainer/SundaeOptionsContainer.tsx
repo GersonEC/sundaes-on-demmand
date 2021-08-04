@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { ScoopOptionList } from "../../components/SundaeOption/ScoopOptionList";
+import { SundaeOptionList } from "../../components/SundaeOption/SundaeOptionList";
+import { SundaeOptionType } from "../../utils/enum";
 import { SundaeModel } from "../../utils/models";
 
 interface SundaeOptionsProps {
-  optionType: string;
+  optionType: SundaeOptionType;
 }
 
-export function SundaeOptions({ optionType }: SundaeOptionsProps) {
+export function SundaeOptionsContainer({ optionType }: SundaeOptionsProps) {
   const [items, setItems] = useState<SundaeModel[]>([]);
 
   useEffect(() => {
@@ -21,7 +22,7 @@ export function SundaeOptions({ optionType }: SundaeOptionsProps) {
 
   return (
     <div>
-      <ScoopOptionList scoopOptions={items} />
+      <SundaeOptionList sundaeOptions={items} optionType={optionType} />
     </div>
   );
 }
