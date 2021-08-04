@@ -8,6 +8,7 @@ function App() {
     <div className="App">
       <SummaryForm />
       <SundaeOptions optionType="scoops" />
+      <SundaeOptions optionType="toppings" />
     </div>
   );
 }

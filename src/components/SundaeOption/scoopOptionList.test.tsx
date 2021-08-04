@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { ScoopOptionList } from "./ScoopOptionList";
+import { ScoopOptionList } from "../../components/SundaeOption/ScoopOptionList";
 import { scoopOptions } from "../../utils/stubs";
 
 describe("Sundae Options", () => {
