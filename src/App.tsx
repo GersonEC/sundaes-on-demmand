@@ -5,11 +5,14 @@ import { OrderEntry } from "./pages/OrderEntry/OrderEntry";
 import { OrderDetailsProvider } from "./contexts/OrderDetails";
 
 function App() {
+  // orderPhase needs to be 'inProgress', 'review' or 'completed'
+  const [orderPhase, setOrderPhase] = React.useState("inProgress");
+
   return (
     <div className="App">
       <OrderDetailsProvider>
+        <OrderEntry setOrderPhase={setOrderPhase} />
         <SummaryForm />
-        <OrderEntry />
         {/* Confirmation page doesn't need a provider */}
       </OrderDetailsProvider>
     </div>

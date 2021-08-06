@@ -1,4 +1,8 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitFor,
+} from "../../test-utils/testing-library-utils";
 import { OrderEntry } from "./OrderEntry";
 import { rest } from "msw";
 import { server } from "../../utils/mocks";
@@ -14,7 +18,7 @@ describe("Order Entry", () => {
       )
     );
 
-    render(<OrderEntry />);
+    render(<OrderEntry setOrderPhase={jest.fn()} />);
 
     await waitFor(async () => {
       const alerts = await screen.findAllByTestId("alert-error");

@@ -1,0 +1,17 @@
+.sundae-option-list_info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 2rem;
+}
+
+.sundae-option-list_items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  border: 1px solid gray;
+  margin: 2rem;
+  padding: 1rem;
+  overflow: auto;
+}
