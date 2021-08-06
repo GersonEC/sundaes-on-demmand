@@ -1,7 +1,7 @@
 .sundae-option_input {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 1rem;
   padding: 1rem;
 }

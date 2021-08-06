@@ -19,7 +19,6 @@ export function SundaeOption({
 }: SundaeOptionProps) {
   const [isValid, setIsValid] = useState(true);
   const handleChange = (event: any) => {
-    debugger;
     const currentValue = event;
 
     // make sure we're using a number and not a string to validate
@@ -52,13 +51,32 @@ export function SundaeOption({
 
       <div className="sundae-option_input">
         <form>
-          <label htmlFor="sundae-quantity">{name ? name : ""}</label>
-          <InputNumber
-            id="sundae-quantity"
-            min={0}
-            defaultValue={0}
-            onChange={handleChange}
-          />
+          {optionType === SundaeOptionType.SCOOPS ? (
+            <>
+              <label style={{ marginRight: "1rem" }} htmlFor="sundae-quantity">
+                {name ? name : ""}
+              </label>
+              <InputNumber
+                id="sundae-quantity"
+                min={0}
+                defaultValue={0}
+                onChange={handleChange}
+              />
+            </>
+          ) : (
+            <>
+              <label style={{ marginRight: "1rem" }} htmlFor="sundae-checkbox">
+                {name ? name : ""}
+              </label>
+              <input
+                id="sundae-checkbox"
+                type="checkbox"
+                onChange={(e) => {
+                  updateItemCount(name, e.target.checked ? 1 : 0);
+                }}
+              />
+            </>
+          )}
         </form>
       </div>
     </div>
