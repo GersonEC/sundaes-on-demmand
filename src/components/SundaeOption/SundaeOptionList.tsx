@@ -4,6 +4,7 @@ import { SundaeOptionType } from "../../utils/enum";
 import { SundaeModel } from "../../utils/models";
 import { SundaeOption } from "./SundaeOption";
 import "./style/SundaeOptionList.css";
+import { formatCurrency } from "../../utils/utilities";
 
 interface SundaeOptionListProps {
   sundaeOptions: SundaeModel[];
@@ -21,7 +22,7 @@ export function SundaeOptionList({
     <div className="sundae-option-list">
       <div className="sundae-option-list_info">
         <h2>{title}</h2>
-        <p>{pricePerItem[optionType]} each</p>
+        <p>{formatCurrency(pricePerItem[optionType])} each</p>
         <p>
           {title} total: {orderDetails.totals[optionType]}
         </p>

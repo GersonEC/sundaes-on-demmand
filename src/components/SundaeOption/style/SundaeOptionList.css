@@ -11,7 +11,6 @@
   align-items: center;
   gap: 2rem;
   border: 1px solid gray;
-  margin: 2rem;
-  padding: 1rem;
-  overflow: auto;
+  padding: 1rem 3rem 1rem 3rem;
+  overflow-x: auto;
 }

@@ -12,7 +12,6 @@ function App() {
     <div className="App">
       <OrderDetailsProvider>
         <OrderEntry setOrderPhase={setOrderPhase} />
-        <SummaryForm />
         {/* Confirmation page doesn't need a provider */}
       </OrderDetailsProvider>
     </div>

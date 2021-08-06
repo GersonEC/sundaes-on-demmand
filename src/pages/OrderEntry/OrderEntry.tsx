@@ -1,6 +1,7 @@
 import { SundaeOptionsContainer } from "../../containers/SundaeOptionsContainer/SundaeOptionsContainer";
 import { useOrderDetails } from "../../contexts/OrderDetails";
 import { SundaeOptionType } from "../../utils/enum";
+import "./OrderEntry.css";
 
 interface OrderEntryProps {
   setOrderPhase: (status: string) => void;
@@ -15,10 +16,15 @@ export function OrderEntry({ setOrderPhase }: OrderEntryProps) {
       <h1>Design your Sundae!</h1>
       <SundaeOptionsContainer optionType={SundaeOptionType.SCOOPS} />
       <SundaeOptionsContainer optionType={SundaeOptionType.TOPPINGS} />
-      <h2>Grand total: {orderDetails.totals.grandTotal}</h2>
-      <button disabled={orderDisabled} onClick={() => setOrderPhase("review")}>
-        Order Sundae!
-      </button>
+      <div className="order-entry_total">
+        <h2>Grand total: {orderDetails.totals.grandTotal}</h2>
+        <button
+          disabled={orderDisabled}
+          onClick={() => setOrderPhase("review")}
+        >
+          Order Sundae!
+        </button>
+      </div>
     </div>
   );
 }

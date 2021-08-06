@@ -1,5 +1,6 @@
 import { SundaeOptionType } from "../../utils/enum";
 import { InputNumber } from "antd";
+import "antd/dist/antd.css";
 import "./style/SundaeOption.css";
 
 interface SundaeOptionProps {
