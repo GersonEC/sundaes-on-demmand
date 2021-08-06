@@ -17,6 +17,7 @@ describe("Sundae Option", () => {
     );
     const scoopImage = screen.getByRole("img", { name: /scoop$/i });
     expect(scoopImage).toBeInTheDocument();
+    screen.debug();
   });
 
   test("it displays an image for topping option", () => {

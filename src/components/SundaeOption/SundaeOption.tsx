@@ -2,6 +2,7 @@ import { SundaeOptionType } from "../../utils/enum";
 import { InputNumber } from "antd";
 import "antd/dist/antd.css";
 import "./style/SundaeOption.css";
+import { useState } from "react";
 
 interface SundaeOptionProps {
   name: string;
@@ -16,9 +17,24 @@ export function SundaeOption({
   optionType,
   updateItemCount,
 }: SundaeOptionProps) {
-  const onFinish = () => {};
+  const [isValid, setIsValid] = useState(true);
+  const handleChange = (event: any) => {
+    debugger;
+    const currentValue = event;
 
-  const onFinishFailed = () => {};
+    // make sure we're using a number and not a string to validate
+    const currentValueFloat = parseFloat(currentValue);
+    const valueIsValid =
+      0 <= currentValueFloat &&
+      currentValueFloat <= 10 &&
+      Math.floor(currentValueFloat) === currentValueFloat;
+
+    // validate
+    setIsValid(valueIsValid);
+
+    // only update context if the value is valid
+    if (valueIsValid) updateItemCount(name, currentValue);
+  };
 
   return (
     <div className="sundae-option">
@@ -35,8 +51,15 @@ export function SundaeOption({
       </div>
 
       <div className="sundae-option_input">
-        {name ? name : ""}
-        <InputNumber />
+        <form>
+          <label htmlFor="sundae-quantity">{name ? name : ""}</label>
+          <InputNumber
+            id="sundae-quantity"
+            min={0}
+            defaultValue={0}
+            onChange={handleChange}
+          />
+        </form>
       </div>
     </div>
   );
