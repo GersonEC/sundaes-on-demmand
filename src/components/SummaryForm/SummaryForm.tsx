@@ -3,7 +3,10 @@ import { Button } from "../Button/Button";
 import { Popover } from "antd";
 import "antd/dist/antd.css";
 
-export function SummaryForm() {
+interface SummaryFormProps {
+  onClick: void;
+}
+export function SummaryForm({ onClick }: SummaryFormProps) {
   const [checked, setChecked] = useState(false);
 
   const content = <p>No ice cream will actually be delivered</p>;
@@ -25,7 +28,7 @@ export function SummaryForm() {
           </span>
         </Popover>
       </label>
-      <Button text="Confirm order" isDisabled={checked} />
+      <Button text="Confirm order" isDisabled={!checked} onClick={onClick} />
     </div>
   );
 }

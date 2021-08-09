@@ -4,17 +4,17 @@ import "./Button.css";
 interface ButtonProps {
   text: string;
   isDisabled?: boolean;
+  onClick?: void;
 }
 
-export function Button({ isDisabled, text }: ButtonProps) {
+export function Button({ isDisabled, text, onClick }: ButtonProps) {
   const [buttonColor, setButtonColor] = useState("red");
-  const newButtonColor = buttonColor === "red" ? "blue" : "red";
 
   return (
     <div>
       <button
         style={{ backgroundColor: isDisabled ? "gray" : buttonColor }}
-        onClick={() => setButtonColor(newButtonColor)}
+        onClick={() => onClick}
         disabled={isDisabled}
       >
         {text}
