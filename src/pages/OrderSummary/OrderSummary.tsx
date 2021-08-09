@@ -7,6 +7,7 @@ import "./OrderSummary.css";
 interface OrderSummaryProps {
   setOrderPhase: (status: string) => void;
 }
+
 export function OrderSummary({ setOrderPhase }: OrderSummaryProps) {
   const [orderDetails] = useOrderDetails();
   const scoops: [][] = Array.from(orderDetails.scoops);
@@ -27,7 +28,7 @@ export function OrderSummary({ setOrderPhase }: OrderSummaryProps) {
         sundaes={toppings}
       />
       <h2>Total: {orderDetails.totals.grandTotal}</h2>
-      <SummaryForm onClick={setOrderPhase("completed")} />
+      <SummaryForm setOrderPhase={setOrderPhase} />
     </div>
   );
 }

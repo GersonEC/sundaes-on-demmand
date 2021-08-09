@@ -4,7 +4,7 @@ import "./Button.css";
 interface ButtonProps {
   text: string;
   isDisabled?: boolean;
-  onClick?: void;
+  onClick: void;
 }
 
 export function Button({ isDisabled, text, onClick }: ButtonProps) {
