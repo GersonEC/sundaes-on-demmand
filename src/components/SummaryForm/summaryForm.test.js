@@ -34,12 +34,11 @@ describe("Summary Form", () => {
     expect(checkbox).not.toBeChecked();
   });
 
-  test("Button change to gray background color when disable", () => {
+  /*test("Button change to gray background color when disable", () => {
     render(<SummaryForm />);
     const button = screen.getByRole("button");
     expect(button).toHaveStyle(`background-color: gray`);
-  });
-
+  });*/
   test("popover responds to hover", () => {
     render(<SummaryForm />);
     const popoverText = /no ice cream will actually be delivered/i;
