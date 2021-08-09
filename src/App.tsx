@@ -9,7 +9,6 @@ function App() {
   // orderPhase needs to be 'inProgress', 'review' or 'completed'
   const [orderPhase, setOrderPhase] = React.useState("inProgress");
 
-  console.log("Order phase: ", orderPhase);
   let Component = OrderEntry; // default to order page
   switch (orderPhase) {
     case "inProgress":
